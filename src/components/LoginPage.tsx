@@ -65,7 +65,6 @@ class LoginPage extends Component<Props, State> {
 
   handleLogin = (): void => {
     // TODO in front end training module
-    }
   }
 
   render() {
