@@ -65,13 +65,13 @@ class LoginPage extends Component<Props, State> {
 
   handleLogin = (): void => {
     // TODO in front end training module
-    }
   }
 
   render() {
     const {
       username,
       password,
+      buttonState,
     } = this.state;
     return (
       <div>
@@ -132,7 +132,7 @@ class LoginPage extends Component<Props, State> {
                     type="submit"
                     onKeyDown={(e) => LoginPage.enterKeyPressed(e, this.onSubmitWithReCAPTCHA)}
                     onClick={this.onSubmitWithReCAPTCHA}
-                    className={`btn btn-success px-5 loginButtonBackground w-100 ld-ext-right ${this.state.buttonState}`}
+                    className={`btn btn-success px-5 loginButtonBackground w-100 ld-ext-right ${buttonState}`}
                   >
                     Sign In
                     <div className="ld ld-ring ld-spin" />
