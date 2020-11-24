@@ -22,7 +22,8 @@ class App extends React.Component<{}, State, {}> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      //delete - isLoggedIn: false,
+      isLoggedIn: true //new; change to true to log into the landing page
     };
   }
 

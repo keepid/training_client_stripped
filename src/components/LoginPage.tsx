@@ -65,13 +65,13 @@ class LoginPage extends Component<Props, State> {
 
   handleLogin = (): void => {
     // TODO in front end training module
-    }
   }
 
   render() {
     const {
       username,
       password,
+      //buttonState, // add button
     } = this.state;
     return (
       <div>
