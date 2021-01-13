@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import AvatarCard from '../AvatarCard'; 
-
+import MessageBanner from '../MessageBanner'; 
 interface State {
-  numCards: number
+  numCards: number, 
+  showError: boolean, 
+  showSuccess: boolean 
 }
 
 
@@ -12,7 +14,9 @@ class ClientLanding extends Component<{}, State, {}> {
   constructor(props) {
     super(props); 
     this.state = {
-      numCards: 4
+      numCards: 4, 
+      showError: false, 
+      showSuccess: false 
     }
   }
 
@@ -36,6 +40,14 @@ class ClientLanding extends Component<{}, State, {}> {
     }))
   }
 
+  handleErrorMessage = () => {
+    this.setState({showError: true, showSuccess: false}); 
+  }
+
+  handleSuccessMessage = () => {
+    this.setState({showError: false, showSuccess: true})
+  }
+
   render() {
     return (
       <div className="container">
@@ -43,6 +55,7 @@ class ClientLanding extends Component<{}, State, {}> {
           <title>Home</title>
           <meta name="description" content="Keep.id" />
         </Helmet>
+        <MessageBanner showError = {this.state.showError} showSuccess = {this.state.showSuccess} handleErrorChange = {() => this.setState({showError: false})} handleSuccessChange ={() => this.setState({showSuccess: false})} />
         <div className = "mt-5 mb-5">
           <h1>Welcome Gagandeep Kang</h1>
         </div>
@@ -59,8 +72,8 @@ class ClientLanding extends Component<{}, State, {}> {
           </div>
         </div>
         <div className = "btn-container">
-          <button type="button" className="btn btn-primary">Error Message</button>
-          <button type="button" className="btn btn-primary">Success Toast</button>
+          <button type="button" className="btn btn-primary" onClick = {this.handleErrorMessage}>Error Message</button>
+          <button type="button" className="btn btn-primary" onClick = {this.handleSuccessMessage}>Success Toast</button>
           <button type="button" className="btn btn-primary" onClick = {this.handleAddCard}>Add Card</button>
           <button type="button" className="btn btn-primary" onClick = {this.handleRemoveLastCard}>Remove Last Card</button>
         </div>
