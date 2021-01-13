@@ -32,7 +32,7 @@ class ClientLanding extends Component<{}, State, {}> {
 
   handleRemoveLastCard = () => {
     this.setState(prevState => ({
-      numCards: prevState.numCards == 0 ? 0 : prevState.numCards - 1
+      numCards: prevState.numCards === 0 ? 0 : prevState.numCards - 1
     }))
   }
 
@@ -51,7 +51,7 @@ class ClientLanding extends Component<{}, State, {}> {
           </div>
         </div>
         <div className = "mt-4">
-          <div style={{"float": "right"}}>		
+          <div className = "right-step-btn-container">		
             <button type="button" className="btn btn-outline-primary">Next Step</button>
           </div>
           <div>		
