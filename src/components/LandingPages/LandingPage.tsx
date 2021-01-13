@@ -32,7 +32,7 @@ class ClientLanding extends Component<{}, State, {}> {
 
   handleRemoveLastCard = () => {
     this.setState(prevState => ({
-      numCards: prevState.numCards -1
+      numCards: prevState.numCards == 0 ? 0 : prevState.numCards - 1
     }))
   }
 
