@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import aangImage from 'src/static/images/aang.jpg';
+import aangImage from '../../static/images/aang.jpg';
 import { Container, Row, Col } from 'react-bootstrap';
 
 function AangCard(props) {
