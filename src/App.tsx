@@ -8,11 +8,11 @@ import {
 import './static/styles/App.scss';
 import { Helmet } from 'react-helmet';
 import Header from './components/Header';
-import Error from './components/Error';
+import Error from './modules/Error';
 import Footer from './components/Footer';
 import getServerURL from './serverOverride';
-import LoginPage from './components/LoginPage';
-import LandingPage from './components/LandingPages/LandingPage';
+import LoginPage from './modules/LoginPage';
+import LandingPage from './modules/LandingPages/LandingPage';
 
 interface State {
   isLoggedIn: boolean;
@@ -22,7 +22,7 @@ class App extends React.Component<{}, State, {}> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: true,
     };
   }
 
@@ -57,7 +57,7 @@ class App extends React.Component<{}, State, {}> {
               <Route exact path="/" render={() => <Redirect to="/login" />} />
               <Route
                 path="/home"
-                render={() => (isLoggedIn ? <LandingPage /> : <Redirect to="/login" />)}
+                render={() => (isLoggedIn ? <LandingPage firstName="Nick" lastName="Rodriguez" /> : <Redirect to="/login" />)}
               />
               <Route
                 path="/login"

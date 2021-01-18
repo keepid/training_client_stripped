@@ -21,10 +21,27 @@
     "noImplicitAny": false
   },
   "include": [
-    "src/components/*",
+    "src/modules/*",
     "src/static/*",
     "src/App.tsx",
     "src/index.jsx",
-    ".d.ts", "src/components/OrgFinder/OrganizationMarker.tsx", "src/components/OrgFinder/MapComponent.tsx", "src/components/OrgFinder/FindOrganization.tsx", "src/components/LandingPages/DeveloperLanding.tsx", "src/components/SignUp/OrganizationSignup.tsx", "src/components/SignUp/Signup.tsx", "src/components/SignUp/PersonSignup.tsx", "src/components/AboutUs/OurPartners.tsx", "src/components/AboutUs/OurTeam.tsx", "src/components/AboutUs/OurMission.tsx", "src/components/LandingPages/WorkerLanding.tsx", "src/components/LandingPages/ClientLanding.tsx", "src/components/AccountSecurity/AdminPanel.tsx", "src/components/AccountSecurity/MyAccount.tsx", "src/components/AccountSecurity/IdleTimeOutModal.tsx", "src/components/AccountSecurity/ResetPassword.tsx", "src/components/AccountSecurity/ForgotPassword.tsx"
+    ".d.ts",
+    "src/modules/OrgFinder/OrganizationMarker.tsx",
+    "src/modules/OrgFinder/MapComponent.tsx",
+    "src/modules/OrgFinder/FindOrganization.tsx",
+    "src/modules/LandingPages/DeveloperLanding.tsx",
+    "src/modules/SignUp/OrganizationSignup.tsx",
+    "src/modules/SignUp/Signup.tsx",
+    "src/modules/SignUp/PersonSignup.tsx",
+    "src/modules/AboutUs/OurPartners.tsx",
+    "src/modules/AboutUs/OurTeam.tsx",
+    "src/modules/AboutUs/OurMission.tsx",
+    "src/modules/LandingPages/WorkerLanding.tsx",
+    "src/modules/LandingPages/ClientLanding.tsx",
+    "src/modules/AccountSecurity/AdminPanel.tsx",
+    "src/modules/AccountSecurity/MyAccount.tsx",
+    "src/modules/AccountSecurity/IdleTimeOutModal.tsx",
+    "src/modules/AccountSecurity/ResetPassword.tsx",
+    "src/modules/AccountSecurity/ForgotPassword.tsx"
   ]
 }
