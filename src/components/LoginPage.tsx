@@ -5,6 +5,7 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import getServerURL from '../serverOverride';
 import LoginSVG from '../static/images/login-svg.svg';
 import { reCaptchaKey } from '../configVars';
+import { Redirect } from 'react-router-dom';
 
 interface State {
   username: string,
@@ -16,7 +17,7 @@ interface State {
 const recaptchaRef: React.RefObject<ReCAPTCHA> = React.createRef();
 
 interface Props {
-  setLogInState: (isLoggedIn: boolean) => void,
+  setLoginState: (isLoggedIn: boolean) => void,
   isLoggedIn: boolean,
   alert: any
 }
@@ -63,8 +64,23 @@ class LoginPage extends Component<Props, State> {
     this.setState({ recaptchaPayload: '' });
   }
 
-  handleLogin = (): void => {
+  redirectToHome = () => {
+    return <Redirect to= "/home" />
+  }
+
+  handleLogin = async (): Promise<void> => {
     // TODO in front end training module
+    const loginResp = await fetch(getServerURL() + "/login", {method: "post", body: JSON.stringify({username: this.state.password, password: this.state.password})}); 
+    const body = await loginResp.json(); 
+    if (body.status === "AUTH_SUCCESS") {
+      this.props.setLoginState(true); 
+      this.props.alert.show("Successful Login")
+      this.redirectToHome(); 
+    }
+    else {
+      this.props.setLoginState(false); 
+      this.props.alert.show("Unsuccessful Login")
+    }
   }
 
   render() {
