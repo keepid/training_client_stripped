@@ -65,7 +65,7 @@ class LoginPage extends Component<Props, State> {
 
   handleLogin = (): void => {
     // TODO in front end training module
-    this.setState({buttonState: 'running'});
+    this.setState({ buttonState: 'running' });
     const {
       setLogInState,
       alert,
@@ -74,8 +74,8 @@ class LoginPage extends Component<Props, State> {
       username,
       password,
       recaptchaPayload,
-    } = this.state
-    fetch('${getServerURL()}/login',{
+    } = this.state;
+    fetch('${getServerURL()}/login', {
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify({
@@ -84,20 +84,20 @@ class LoginPage extends Component<Props, State> {
         recaptchaPayload,
       }),
     }).then((response) => response.json())
-    .then((responseJSON) => {
-      const{status,} = responseJSON;
-      if (status==="AUTH_SUCCESS"){
-        setLogInState(true);
-      }else{
-        alert.show('Failure');
-        this.setState({buttonState: ''});
+      .then((responseJSON) => {
+        const { status } = responseJSON;
+        if (status === 'AUTH_SUCCESS') {
+          setLogInState(true);
+        } else {
+          alert.show('Failure');
+          this.setState({ buttonState: '' });
+          this.resetRecaptcha();
+        }
+      }).catch(() => {
+        alert.show('something else is going on');
+        this.setState({ buttonState: '' });
         this.resetRecaptcha();
-      }
-    }).catch(()=>  {
-      alert.show("something else is going on")
-      this.setState({ buttonState: '' });
-      this.resetRecaptcha();
-    })
+      });
   }
 
   render() {
