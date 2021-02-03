@@ -50,13 +50,13 @@ interface IState{
   barProgress: number
 }
 
-class ClientLanding extends Component<{}, {errorToggle: boolean, barProgress:number, moreCard: boolean, successToast: boolean}> {
+class ClientLanding extends Component<{}, {errorToggle: boolean, barProgress:number, cardAmount: number, successToast: boolean}> {
   constructor(props) {
     super(props);
     this.state = {
       errorToggle: false,
       barProgress: 0,
-      moreCard: false,
+      cardAmount: 2,
       successToast: false,
     };
   }
@@ -89,11 +89,16 @@ class ClientLanding extends Component<{}, {errorToggle: boolean, barProgress:num
     );
   }
 
-  addCard() {
-    if (this.state.moreCard) {
-      this.setState({ moreCard: false });
-      return (AangCard());
-    } return (null);
+  addRobotHandler = () => {
+    this.setState((prevState) => ({ cardAmount: prevState.cardAmount + 1 }));
+  };
+
+  getCards = () => {
+    const cards : JSX.Element[] = [];
+    for (let i = 0; i < this.state.cardAmount; i++) {
+      cards.push(<AangCard />);
+    }
+    return cards;
   }
 
   successToast() {
@@ -133,15 +138,13 @@ class ClientLanding extends Component<{}, {errorToggle: boolean, barProgress:num
           <div className="row justify-content-start">
             <Button variant="m-2 btn-primary" onClick={() => this.setState({ errorToggle: !this.state.errorToggle })}>Error Message</Button>
             <Button variant="m-2 btn-primary" onClick={() => this.setState({ successToast: !this.state.successToast })}>Success Toast</Button>
-            <Button variant="m-2 btn-primary" onClick={() => this.setState({ moreCard: true })}>Add Card</Button>
+            <Button variant="m-2 btn-primary" onClick={this.addRobotHandler}>Add Card</Button>
           </div>
         </div>
 
         <div className="container-fluid">
           <Row>
-            <AangCard />
-            <AangCard />
-            {this.addCard()}
+            {this.getCards()}
           </Row>
         </div>
 

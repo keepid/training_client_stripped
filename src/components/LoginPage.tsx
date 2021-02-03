@@ -75,7 +75,8 @@ class LoginPage extends Component<Props, State> {
       password,
       recaptchaPayload,
     } = this.state;
-    fetch('${getServerURL()}/login', {
+
+    fetch(`${getServerURL()}/login`, {
       method: 'POST',
       credentials: 'include',
       body: JSON.stringify({
@@ -85,16 +86,18 @@ class LoginPage extends Component<Props, State> {
       }),
     }).then((response) => response.json())
       .then((responseJSON) => {
-        const { status } = responseJSON;
+        const {
+          status,
+        } = responseJSON;
         if (status === 'AUTH_SUCCESS') {
           setLogInState(true);
-        } else {
-          alert.show('Failure');
+        } else if (status === 'AUTH_FAILURE' || status === 'USER_NOT_FOUND') {
+          alert.show('incorrect username or password');
           this.setState({ buttonState: '' });
           this.resetRecaptcha();
         }
       }).catch(() => {
-        alert.show('something else is going on');
+        alert.show('something on our end is wrong');
         this.setState({ buttonState: '' });
         this.resetRecaptcha();
       });
