@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { withAlert } from 'react-alert';
 import ReCAPTCHA from 'react-google-recaptcha';
-import getServerURL from '../serverOverride';
+// import getServerURL from '../serverOverride';
 import LoginSVG from '../static/images/login-svg.svg';
 import { reCaptchaKey } from '../configVars';
 
