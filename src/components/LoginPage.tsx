@@ -65,6 +65,42 @@ class LoginPage extends Component<Props, State> {
 
   handleLogin = (): void => {
     // TODO in front end training module
+    this.setState({ buttonState: 'running' });
+    const {
+      setLogInState,
+      alert,
+    } = this.props;
+    const {
+      username,
+      password,
+      recaptchaPayload,
+    } = this.state;
+
+    fetch(`${getServerURL()}/login`, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({
+        username,
+        password,
+        recaptchaPayload,
+      }),
+    }).then((response) => response.json())
+      .then((responseJSON) => {
+        const {
+          status,
+        } = responseJSON;
+        if (status === 'AUTH_SUCCESS') {
+          setLogInState(true);
+        } else if (status === 'AUTH_FAILURE' || status === 'USER_NOT_FOUND') {
+          alert.show('incorrect username or password');
+          this.setState({ buttonState: '' });
+          this.resetRecaptcha();
+        }
+      }).catch(() => {
+        alert.show('something on our end is wrong');
+        this.setState({ buttonState: '' });
+        this.resetRecaptcha();
+      });
   }
 
   render() {
