@@ -1,0 +1,35 @@
+.alert {
+	//height: 5.5rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.alert-danger {
+	background: #F4E8E8;
+	border: .125rem solid #F24D4D;
+	border-radius: .25rem;
+}
+
+.alert-icon-container {
+	margin-right: 1rem;
+}
+
+.alert-icon {
+	height: 1.5rem;
+}
+
+.alert-body {
+	display: flex;
+}
+
+.alert-body-text {
+	color: #212529;
+	margin-bottom: 0rem;
+}
+
+.alert-header-text {
+	color: #212529;
+	// TODO: why doesn't this seem to be applying properly?
+	font-weight: 800;
+	margin-bottom: .25rem;
+}
