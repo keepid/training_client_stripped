@@ -25,7 +25,7 @@ class App extends React.Component<{}, State> {
     this.state = {
       isLoggedIn: true,
       // FIXME: hardcoding my name for now lmao
-      name: 'Leonard Tang'
+      name: 'Leonard Tang',
     };
   }
 

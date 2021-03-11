@@ -106,7 +106,7 @@ body {
 // Buttons
 
 #bottom-button-row {
-  width: 37%
+	width: 37%
 }
 
 .btn-primary {
@@ -129,7 +129,7 @@ body {
 
 .btn-outline-primary {
 	color: $primary-theme;
-    font-weight: bold;
+	font-weight: bold;
 	background-color: white;
 	border-color: $primary-theme;
 }
@@ -456,11 +456,12 @@ thead {
 }
 
 hr {
-    border: none;
-    height: 10px;
-    /* Set the hr color */
-    color: rgb(230, 230, 230); /* old IE */
-    background-color: rgb(230, 230, 230); /* Modern Browsers */
+	border: none;
+	height: 10px;
+
+	/* Set the hr color */
+	color: rgb(230, 230, 230); /* old IE */
+	background-color: rgb(230, 230, 230); /* Modern Browsers */
 	border-radius: .5rem;
 }
 
