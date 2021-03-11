@@ -105,6 +105,10 @@ body {
 
 // Buttons
 
+#bottom-button-row {
+	width: 37%
+}
+
 .btn-primary {
 	color: white;
 	background-color: $primary-theme;
@@ -125,6 +129,7 @@ body {
 
 .btn-outline-primary {
 	color: $primary-theme;
+	font-weight: bold;
 	background-color: white;
 	border-color: $primary-theme;
 }
@@ -348,6 +353,11 @@ thead {
 	min-width: 16.75rem;
 	border-color: $primary-theme;
 	border-width: 0.0625 rem;
+	border-radius: 5%;
+}
+
+.card-img-top{
+	border-radius: 5%; 
 }
 
 .partner-card {
@@ -443,6 +453,21 @@ thead {
 	.mobile-hide {
 		display: none;
 	}
+}
+
+hr {
+	border: none;
+	height: 10px;
+
+	/* Set the hr color */
+	color: rgb(230, 230, 230); /* old IE */
+	background-color: rgb(230, 230, 230); /* Modern Browsers */
+	border-radius: .5rem;
+}
+
+
+.a{
+	width: 100%;
 }
 
 .btn-dark-custom, .btn-dark-custom:hover{
