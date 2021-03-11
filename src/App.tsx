@@ -16,13 +16,16 @@ import LandingPage from './components/LandingPages/LandingPage';
 
 interface State {
   isLoggedIn: boolean;
+  name: string;
 }
 
-class App extends React.Component<{}, State, {}> {
+class App extends React.Component<{}, State> {
   constructor(props: {}) {
     super(props);
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: true,
+      // FIXME: hardcoding my name for now lmao
+      name: 'Leonard Tang'
     };
   }
 
@@ -37,7 +40,7 @@ class App extends React.Component<{}, State, {}> {
   };
 
   render() {
-    const { isLoggedIn } = this.state;
+    const { isLoggedIn, name } = this.state;
     return (
       <Router>
         <div className="App">
@@ -57,7 +60,7 @@ class App extends React.Component<{}, State, {}> {
               <Route exact path="/" render={() => <Redirect to="/login" />} />
               <Route
                 path="/home"
-                render={() => (isLoggedIn ? <LandingPage /> : <Redirect to="/login" />)}
+                render={() => (isLoggedIn ? <LandingPage name={name} /> : <Redirect to="/login" />)}
               />
               <Route
                 path="/login"
